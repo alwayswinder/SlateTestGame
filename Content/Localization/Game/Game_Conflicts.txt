@@ -1,0 +1,8 @@
+SlAiMenu - RecordNameHint 
+	/Engine/Binaries/Win64/Source/SlateTest01/Public/Data/SlAIInternation.cpp - line 19 - "RecordNameHint" 
+	/Engine/Binaries/Win64/Source/SlateTest01/Private/UI/Widget/SSlAiNewGameWidget.cpp - line 56 - "Input Record Name!" 
+
+SlAiMenu - NameRepeateHint 
+	/Engine/Binaries/Win64/Source/SlateTest01/Public/Data/SlAIInternation.cpp - line 20 - "NameRepeateHint" 
+	/Engine/Binaries/Win64/Source/SlateTest01/Private/UI/Widget/SSlAiNewGameWidget.cpp - line 76 - "Record Name Repeated!" 
+

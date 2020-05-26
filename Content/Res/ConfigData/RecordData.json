@@ -1,0 +1,21 @@
+ [
+		{
+			"Culture": "EN"
+		},
+		{
+			"MusicVolume": 0.14519177377223969
+		},
+		{
+			"SoundVolume": 0.12976576387882233
+		},
+		{
+			"RecordData": [
+				{
+					"0": "Default"
+				},
+				{
+					"1": "RecordOne"
+				}
+			]
+		}
+	]

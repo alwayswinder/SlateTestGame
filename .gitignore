@@ -1,0 +1,30 @@
+  
+/.vs
+/*.sln
+/*.dll
+/*.pdb
+
+SourceArt/**/*.png
+SourceArt/**/*.tga
+
+Binaries/*
+Plugins/*/Binaries/*
+
+# Builds
+Build/*
+
+# Whitelist PakBlacklist-<BuildConfiguration>.txt files
+!Build/*/
+Build/*/**
+!Build/*/PakBlacklist*.txt
+
+!Build/**/*.ico
+
+*_BuiltData.uasset
+
+Saved/*
+
+Intermediate/*
+/Plugins/lincBPI/Intermediate
+
+/DerivedDataCache

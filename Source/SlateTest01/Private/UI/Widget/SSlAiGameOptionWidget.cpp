@@ -247,10 +247,10 @@ void SSlAiGameOptionWidget::StyleInitalize()
 	}
 	MuSlider->SetValue(SlAiDataHandle::Get()->MusicVolume);
 	SoSlider->SetValue(SlAiDataHandle::Get()->SoundVolume);
-	MuTextBlock->SetText(FText::FromString(FString::FromInt(FMath::RoundToInt(SlAiDataHandle::Get()->MusicVolume * 100)) +
-		FString("%")));
-	SoTextBlock->SetText(FText::FromString(FString::FromInt(FMath::RoundToInt(SlAiDataHandle::Get()->SoundVolume * 100)) + 
-		FString("%")));
+	MuTextBlock->SetText(FText::FromString(FString::FromInt(FMath::RoundToInt(SlAiDataHandle::Get()
+		->MusicVolume * 100)) + FString("%")));
+	SoTextBlock->SetText(FText::FromString(FString::FromInt(FMath::RoundToInt(SlAiDataHandle::Get()
+		->SoundVolume * 100)) + FString("%")));
 }
 
 END_SLATE_FUNCTION_BUILD_OPTIMIZATION

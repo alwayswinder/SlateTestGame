@@ -48,8 +48,8 @@ void SlAiDataHandle::ChangeLocalizationCulture(ECultureTeam NewCulture)
 		break;
 	}
 	CurrnetCulture = NewCulture;
-	SlAiSingleton<SlAiJsonHandle>::Get()->UpdateRecordData(GetEnumValueAsString<ECultureTeam>(FString("ECultureTeam"),
-		CurrnetCulture), MusicVolume, SoundVolume, &RecordDataList);
+	SlAiSingleton<SlAiJsonHandle>::Get()->UpdateRecordData(GetEnumValueAsString<ECultureTeam>
+		(FString("ECultureTeam"),CurrnetCulture), MusicVolume, SoundVolume, &RecordDataList);
 }
 
 void SlAiDataHandle::ResetMenuVolume(float MusicVal, float SoundVal)

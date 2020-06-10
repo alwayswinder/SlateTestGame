@@ -50,7 +50,7 @@ void SSlAiMenuWidget::Construct(const FArguments& InArgs)
 		SAssignNew(RootSizeBox, SBox)
 		[
 			SNew(SOverlay)
-
+			//背景图片
 			+SOverlay::Slot()
 			.HAlign(HAlign_Fill)
 			.VAlign(VAlign_Fill)
@@ -59,7 +59,7 @@ void SSlAiMenuWidget::Construct(const FArguments& InArgs)
 				SNew(SImage)
 				.Image(&MenuStyle->MenuCenterBackgroundBrush)
 			]
-
+			//左边框
 			+SOverlay::Slot()
 			.HAlign(HAlign_Left)
 			.VAlign(VAlign_Center)
@@ -68,7 +68,7 @@ void SSlAiMenuWidget::Construct(const FArguments& InArgs)
 				SNew(SImage)
 				.Image(&MenuStyle->MenuLeftIconBrush)
 			]
-
+			//右边框
 			+ SOverlay::Slot()
 			.HAlign(HAlign_Right)
 			.VAlign(VAlign_Center)
@@ -77,7 +77,7 @@ void SSlAiMenuWidget::Construct(const FArguments& InArgs)
 				SNew(SImage)
 				.Image(&MenuStyle->MenuRightIconBrush)
 			]
-
+			//菜单标题
 			+ SOverlay::Slot()
 				.HAlign(HAlign_Center)
 				.VAlign(VAlign_Top)
@@ -97,6 +97,7 @@ void SSlAiMenuWidget::Construct(const FArguments& InArgs)
 						]
 					]
 				]
+			//菜单内部控件
 			+SOverlay::Slot()
 			.HAlign(HAlign_Center)
 			.VAlign(VAlign_Center)
@@ -110,10 +111,11 @@ void SSlAiMenuWidget::Construct(const FArguments& InArgs)
 	
 	InitializedMenuList();
 	InitializedAnimtion();
-
+	
 }
 
-void SSlAiMenuWidget::Tick(const FGeometry& AllottedGeometry, const double InCurrentTime, const float InDeltaTime)
+void SSlAiMenuWidget::Tick(const FGeometry& AllottedGeometry, const double InCurrentTime, 
+	const float InDeltaTime)
 {
 	switch (AnimState)
 	{
@@ -230,25 +232,31 @@ void SSlAiMenuWidget::InitializedMenuList()
 
 	//主界面
 	TArray<TSharedPtr<SCompoundWidget>> MainMenuList;
-	MainMenuList.Add(SNew(SSlAiMenuItmeWidget).ItemText(NSLOCTEXT("SlAiMenu", "StartGame", "StartGame")).ItemType
-	(EMenuItem::StartGame).OnClicked(this, &SSlAiMenuWidget::MenuItemOnClicked));
-	MainMenuList.Add(SNew(SSlAiMenuItmeWidget).ItemText(NSLOCTEXT("SlAiMenu", "GameOption", "GameOption")).ItemType
-	(EMenuItem::GameOption).OnClicked(this, &SSlAiMenuWidget::MenuItemOnClicked));
-	MainMenuList.Add(SNew(SSlAiMenuItmeWidget).ItemText(NSLOCTEXT("SlAiMenu", "QuitGame", "QuitGame")).ItemType
-	(EMenuItem::QuitGame).OnClicked(this, &SSlAiMenuWidget::MenuItemOnClicked));
-	MenuMap.Add(EMenuType::MainMenu, MakeShareable(new MenuGroup(NSLOCTEXT("SlAiMenu", "Menu", "Menu"),
-		510.f, &MainMenuList)));
+	MainMenuList.Add(SNew(SSlAiMenuItmeWidget).ItemText(NSLOCTEXT("SlAiMenu", "StartGame", 
+		"StartGame")).ItemType(EMenuItem::StartGame).OnClicked(this,
+			&SSlAiMenuWidget::MenuItemOnClicked));
+	MainMenuList.Add(SNew(SSlAiMenuItmeWidget).ItemText(NSLOCTEXT("SlAiMenu", "GameOption", 
+		"GameOption")).ItemType(EMenuItem::GameOption).OnClicked(this,
+			&SSlAiMenuWidget::MenuItemOnClicked));
+	MainMenuList.Add(SNew(SSlAiMenuItmeWidget).ItemText(NSLOCTEXT("SlAiMenu", "QuitGame", 
+		"QuitGame")).ItemType(EMenuItem::QuitGame).OnClicked(this, 
+			&SSlAiMenuWidget::MenuItemOnClicked));
+	MenuMap.Add(EMenuType::MainMenu, MakeShareable(new MenuGroup(NSLOCTEXT("SlAiMenu", "Menu",
+		"Menu"),510.f, &MainMenuList)));
 
 	//开始游戏
 	TArray<TSharedPtr<SCompoundWidget>> StartGameList;
-	StartGameList.Add(SNew(SSlAiMenuItmeWidget).ItemText(NSLOCTEXT("SlAiMenu", "NewGame", "NewGame")).ItemType
-	(EMenuItem::NewGame).OnClicked(this, &SSlAiMenuWidget::MenuItemOnClicked));
-	StartGameList.Add(SNew(SSlAiMenuItmeWidget).ItemText(NSLOCTEXT("SlAiMenu", "LoadRecord", "LoadRecord")).ItemType
-	(EMenuItem::LoadRecord).OnClicked(this, &SSlAiMenuWidget::MenuItemOnClicked));
-	StartGameList.Add(SNew(SSlAiMenuItmeWidget).ItemText(NSLOCTEXT("SlAiMenu", "GoBack", "GoBack")).ItemType
-	(EMenuItem::StartGameGoBack).OnClicked(this, &SSlAiMenuWidget::MenuItemOnClicked));
-	MenuMap.Add(EMenuType::StartGame, MakeShareable(new MenuGroup(NSLOCTEXT("SlAiMenu", "StartGame", "StartGame"),
-		510.f, &StartGameList)));
+	StartGameList.Add(SNew(SSlAiMenuItmeWidget).ItemText(NSLOCTEXT("SlAiMenu", "NewGame", 
+		"NewGame")).ItemType(EMenuItem::NewGame).OnClicked(this, 
+			&SSlAiMenuWidget::MenuItemOnClicked));
+	StartGameList.Add(SNew(SSlAiMenuItmeWidget).ItemText(NSLOCTEXT("SlAiMenu", "LoadRecord", 
+		"LoadRecord")).ItemType(EMenuItem::LoadRecord).OnClicked(this, 
+			&SSlAiMenuWidget::MenuItemOnClicked));
+	StartGameList.Add(SNew(SSlAiMenuItmeWidget).ItemText(NSLOCTEXT("SlAiMenu", "GoBack", 
+		"GoBack")).ItemType(EMenuItem::StartGameGoBack).OnClicked(this,
+			&SSlAiMenuWidget::MenuItemOnClicked));
+	MenuMap.Add(EMenuType::StartGame, MakeShareable(new MenuGroup(NSLOCTEXT("SlAiMenu", "StartGame", 
+		"StartGame"),510.f, &StartGameList)));
 
 	//游戏设置界面
 	TArray<TSharedPtr<SCompoundWidget>> GameOptionList;

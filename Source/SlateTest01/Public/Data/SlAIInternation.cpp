@@ -6,9 +6,7 @@
 
 SlAIInternation::SlAIInternation()
 {
-
 	SlAIInternation::Register(LOCTEXT("Menu", "Menu"));
-
 	SlAIInternation::Register(LOCTEXT("StartGame", "StartGame"));
 	SlAIInternation::Register(LOCTEXT("GameOption", "GameOption"));
 	SlAIInternation::Register(LOCTEXT("QuitGame", "QuitGame"));

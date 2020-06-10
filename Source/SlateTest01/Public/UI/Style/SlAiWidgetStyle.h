@@ -12,7 +12,6 @@ class FSlateStyleSet;
 class SLATETEST01_API SlAiWidgetStyle
 {
 public:
-
 	static void Initialze();
 	static FName GetStyleSetName();
 	static void ShutDown();

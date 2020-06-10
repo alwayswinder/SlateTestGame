@@ -34,8 +34,8 @@ const ISlateStyle& SlAiWidgetStyle::Get()
 
 TSharedRef<FSlateStyleSet> SlAiWidgetStyle::Create()
 {
-	TSharedRef<FSlateStyleSet> StyleRef = FSlateGameResources::New(SlAiWidgetStyle::GetStyleSetName(), "/Game/UI/Style",
-		"/Game/UI/Style");
+	TSharedRef<FSlateStyleSet> StyleRef = FSlateGameResources::New(SlAiWidgetStyle::GetStyleSetName(),
+		"/Game/UI/Style", "/Game/UI/Style");
 	StyleRef->Set("MenuItemFont", FSlateFontInfo("Roboto-Regular.ttf", 50));
 	return StyleRef;
 }

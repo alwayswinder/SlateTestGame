@@ -45,14 +45,16 @@ void SSlAiMenuItmeWidget::Construct(const FArguments& InArgs)
 }
 END_SLATE_FUNCTION_BUILD_OPTIMIZATION
 
-FReply SSlAiMenuItmeWidget::OnMouseButtonDown(const FGeometry& MyGeometry, const FPointerEvent& MouseEvent)
+FReply SSlAiMenuItmeWidget::OnMouseButtonDown(const FGeometry& MyGeometry, const FPointerEvent& 
+	MouseEvent)
 {
 	IsMouseButtonDown = true; 
 	return FReply::Handled();
 }
 
 
-FReply SSlAiMenuItmeWidget::OnMouseButtonUp(const FGeometry& MyGeometry, const FPointerEvent& MouseEvent)
+FReply SSlAiMenuItmeWidget::OnMouseButtonUp(const FGeometry& MyGeometry, const FPointerEvent& 
+	MouseEvent)
 {
 	if (IsMouseButtonDown)
 	{

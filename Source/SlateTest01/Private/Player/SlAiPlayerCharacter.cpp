@@ -19,13 +19,12 @@ ASlAiPlayerCharacter::ASlAiPlayerCharacter()
 	GameView = EGameViewMode::ThirdMode;
 	UpperBody = EUpperBody::None;
 	IsAllowSwitch = true;
-	//
 	GetCapsuleComponent()->SetCollisionProfileName(FName("PlayerProfile"));
 
-
-	//ThirdMesh
+	/*ThirdMesh*/
 	static ConstructorHelpers::FObjectFinder<USkeletalMesh> staticMeshThird(
-		TEXT("SkeletalMesh'/Game/Res/PolygonAdventure/Mannequin/Player/SkMesh/Player.Player'"));
+		//TEXT("SkeletalMesh'/Game/Res/PolygonAdventure/Mannequin/Player/SkMesh/Player.Player'"));
+	    TEXT("SkeletalMesh'/Game/SkeletonCrew/Skeleton_Crossbowman/Character/skeleton_Crossbowman.Skeleton_Crossbowman'"));
 	GetMesh()->SetSkeletalMesh(staticMeshThird.Object);
 	GetMesh()->bOnlyOwnerSee = true;
 	GetMesh()->bReceivesDecals = false;
@@ -34,7 +33,8 @@ ASlAiPlayerCharacter::ASlAiPlayerCharacter()
 	GetMesh()->SetCollisionResponseToAllChannels(ECR_Ignore);
 	GetMesh()->SetRelativeLocation(FVector(0.f, 0.f, -95.f));
 	GetMesh()->SetRelativeRotation(FQuat::MakeFromEuler(FVector(0.f, 0.f, -90.f)));
-	//FirstMesh
+
+	/*FirstMesh*/
 	static ConstructorHelpers::FObjectFinder<USkeletalMesh> staticMeshFirst(
 		TEXT("SkeletalMesh'/Game/Res/PolygonAdventure/Mannequin/FirstPlayer/SkMesh/FirstPlayer.FirstPlayer'"));
 	MeshFirst = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("MeshFirst"));
@@ -48,27 +48,32 @@ ASlAiPlayerCharacter::ASlAiPlayerCharacter()
 	MeshFirst->SetCollisionResponseToAllChannels(ECR_Ignore);
 	MeshFirst->SetRelativeLocation(FVector(0.f, 0.f, -95.f));
 	MeshFirst->SetRelativeRotation(FQuat::MakeFromEuler(FVector(0.f, 0.f, -90.f)));
-	//SpringCamera
+
+	/*SpringCamera*/
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
 	CameraBoom->SetupAttachment(RootComponent);
 	CameraBoom->TargetArmLength = 300.f;
 	CameraBoom->TargetOffset = FVector(0.f, 0.f, 60.f);
 	CameraBoom->bUsePawnControlRotation = true;
-	//ThirdCamera
+
+	/*ThirdCamera*/
 	ThirdCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("ThirdCamera"));
 	ThirdCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName);
 	ThirdCamera->bUsePawnControlRotation = false;
-	//FirstCamera
+
+	/*FirstCamera*/
 	FirstCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FirstCamera"));
 	FirstCamera->SetupAttachment(RootComponent);
 	FirstCamera->bUsePawnControlRotation = true;
 	FirstCamera->AddLocalOffset(FVector(0.f, 0.f, 60.f));
 
-	//Third Anim
+	/*ThirdAnim*/
 	static ConstructorHelpers::FClassFinder<UAnimInstance> StaticAnimThird(
-		TEXT("AnimBlueprint'/Game/Blueprint/ABP_PlayerThird.ABP_PlayerThird_C'"));
+		//TEXT("AnimBlueprint'/Game/Blueprint/ABP_PlayerThird.ABP_PlayerThird_C'"));
+	    TEXT("AnimBlueprint'/Game/Blueprint/ABP_Crossbowman.ABP_Crossbowman_C'"));
 	GetMesh()->AnimClass = StaticAnimThird.Class;
-	//First ANim
+
+	/*FirstAnim*/
 	static ConstructorHelpers::FClassFinder<UAnimInstance> StaticAnimFirst(
 		TEXT("AnimBlueprint'/Game/Blueprint/ABP_PlayerFirst.ABP_PlayerFirst_C'"));
 	MeshFirst->AnimClass = StaticAnimFirst.Class;

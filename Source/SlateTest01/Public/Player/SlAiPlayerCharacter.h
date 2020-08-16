@@ -15,19 +15,16 @@ UCLASS()
 class SLATETEST01_API ASlAiPlayerCharacter : public ACharacter
 {
 	GENERATED_BODY()
-
 public:
 	// Sets default values for this character's properties
 	ASlAiPlayerCharacter();
-
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
 	void ChangeView(EGameViewMode::Type NewGameView);
-public:
+
+	/*Value*/
 	UPROPERTY(VisibleDefaultsOnly, Category = "SlAi")
 	USpringArmComponent* CameraBoom;
 	UPROPERTY(VisibleDefaultsOnly, Category = "SlAi")
@@ -42,9 +39,6 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-
-
-private:
 	void MoveForward(float Value);
 	void MoveRight(float Value);
 	void LookUpAtRate(float Value);
@@ -56,6 +50,7 @@ private:
 	void OnStopRun();
 	
 private:
+	/*Value*/
 	UPROPERTY(VisibleDefaultsOnly, Category = "SlAi")
 	USkeletalMeshComponent* MeshFirst;
 	float BaseLookUpRate;

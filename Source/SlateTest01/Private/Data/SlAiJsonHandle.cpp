@@ -15,28 +15,24 @@ SlAiJsonHandle::~SlAiJsonHandle()
 {
 }
 
-void SlAiJsonHandle::RecordDataJsonRead(FString& Culture, float& MusicVolume, float& SoundVolume,
+void SlAiJsonHandle::RecordDataJsonRead(FString& Culture, float& MusicVolume, float& SoundVolume, 
 	TArray<FString>& RecordDataList)
 {
 	FString JsonValue;
 	LoadStringFromFile(RecordDataFileName, RelativePath, JsonValue);
-
 	TArray<TSharedPtr<FJsonValue>> JsonParsed;
 	TSharedRef<TJsonReader<TCHAR>> JsonReader = TJsonReaderFactory<TCHAR>::Create(JsonValue);
 	if (FJsonSerializer::Deserialize(JsonReader, JsonParsed))
 	{
 		Culture = JsonParsed[0]->AsObject()->GetStringField(FString("Culture"));
-
 		MusicVolume = JsonParsed[1]->AsObject()->GetNumberField(FString("MusicVolume"));
 		SoundVolume = JsonParsed[2]->AsObject()->GetNumberField(FString("SoundVolume"));
-
 		TArray<TSharedPtr<FJsonValue>> RecordDataArray = JsonParsed[3]->AsObject()->GetArrayField(FString("RecordData"));
 		for (int i=0; i<RecordDataArray.Num(); i++)
 		{
 			FString RecordDataName = RecordDataArray[i]->AsObject()->GetStringField(FString::FromInt(i));
 			RecordDataList.Add(RecordDataName);
 		}
-
 	}
 	else
 	{
@@ -100,7 +96,7 @@ bool SlAiJsonHandle::LoadStringFromFile(const FString& FileName, const FString& 
 {
 	if (!FileName.IsEmpty())
 	{
-		FString AbsoPath = FPaths::GameContentDir() + Relapath + FileName;
+		FString AbsoPath = FPaths::ProjectContentDir() + Relapath + FileName;
 		if (FPaths::FileExists(AbsoPath))
 		{
 			if (FFileHelper::LoadFileToString(ResultString, *AbsoPath))
@@ -110,7 +106,6 @@ bool SlAiJsonHandle::LoadStringFromFile(const FString& FileName, const FString& 
 			else
 			{
 				SlAiHelper::Debug(FString("Load Error") + AbsoPath);
-
 			}
 		}
 		else

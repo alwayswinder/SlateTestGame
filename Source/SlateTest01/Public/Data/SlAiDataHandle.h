@@ -19,7 +19,7 @@ public:
 	void ChangeLocalizationCulture(ECultureTeam NewCulture);
 	void ResetMenuVolume(float MusicVal, float SoundVal);
 
-	/**/
+	/*value*/
 	//存档数据和存档名
 	TArray<FString> RecordDataList;
 	FString RecordName;
@@ -38,7 +38,7 @@ private:
 	void InitRecordData();
 	void InitializeMenuAudio();
 
-	/**/
+	/*value*/
 	static TSharedPtr<SlAiDataHandle> DataInstance;
 	TMap<FString, TArray<USoundCue*>> MenuAudioResource;
 	const struct FSlAiMenuSlateStyle *MenuStyle;

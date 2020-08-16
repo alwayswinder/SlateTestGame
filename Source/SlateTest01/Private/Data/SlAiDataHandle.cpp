@@ -91,7 +91,7 @@ FString SlAiDataHandle::GetEnumValueAsString(const FString& name, TEnum Value)
 	{
 		return FString("InValid");
 	}
-	return EnumPtr->GetEnumName((int32)Value);
+	return EnumPtr->GetNameStringByIndex((int32)Value);
 }
 
 template<typename TEnum>
@@ -108,14 +108,11 @@ TEnum SlAiDataHandle::GetEnumValueFromString(const FString& name, FString Value)
 void SlAiDataHandle::InitRecordData()
 {
 	RecordName = FString("");
-
+	/*∂¡»°json¥Êµµ*/
 	FString Culture;
 	SlAiSingleton<SlAiJsonHandle>::Get()->RecordDataJsonRead(Culture, MusicVolume, SoundVolume, RecordDataList);
 	CurrnetCulture = GetEnumValueFromString<ECultureTeam>(FString("ECultureTeam"), Culture);
 	ChangeLocalizationCulture(CurrnetCulture);
-
-
-	
 	/*SlAiHelper::Debug(Culture + FString("--") + FString::SanitizeFloat(MusicVolume) + FString("--") + 
 		FString::SanitizeFloat(SoundVolume), 40.f);
 

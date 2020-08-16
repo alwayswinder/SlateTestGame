@@ -34,8 +34,7 @@ void USlAiPlayerAnimInsThird::UpdateParameter()
 	if (PawnOwner)
 	{
 		IsAir = PawnOwner->GetCharacterMovement()->IsFalling();
-		float PreDir = PawnOwner->GetVelocity().ToOrientationRotator().Yaw -
-			PawnOwner->GetActorRotation().Yaw;
+		float PreDir = PawnOwner->GetVelocity().ToOrientationRotator().Yaw - PawnOwner->GetActorRotation().Yaw;
 		if (PreDir > 180.f)
 		{
 			PreDir -= 360.f;
